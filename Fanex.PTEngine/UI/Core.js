@@ -917,6 +917,7 @@ if (typeof (Fanex.PTEngine) == 'undefined') { // Define Fanex.PTEngine namespace
                 };
             };
             this.Render = function (owner) {
+                var isDisplaySportbooks = Fanex.PTEngine.CURRENT_CONTEXT.isDisplaySportbooks;
                 var box = null;
                 var elements = []; // Child bet type group sets element
                 if (typeof (this.betTypeGroupSets) != 'object' || typeof (this.betTypeGroupSets.length) == 'undefined' || this.betTypeGroupSets.length <= 0) {
@@ -1004,6 +1005,10 @@ if (typeof (Fanex.PTEngine) == 'undefined') { // Define Fanex.PTEngine namespace
                     // Handle default collapse / expand
                     if (this.collapsed) {
                         box2.style.display = "none"; // box2 contains PT setting
+
+                        if (!isDisplaySportbooks && this.id === 161) {
+                            box2.style.display = "block";
+                        }
                     } else {
                         header.style.minWidth = minWidth + "px";
                     }
@@ -1031,6 +1036,9 @@ if (typeof (Fanex.PTEngine) == 'undefined') { // Define Fanex.PTEngine namespace
                     header.onclick = function () {
                         header.parent.Toggle();
                     };
+                    if (!isDisplaySportbooks && this.id !== 161) {
+                        box.style.display = 'none';
+                    }
                     box.appendChild(box2);
                 }
                 if (this.elements.length == 0) {

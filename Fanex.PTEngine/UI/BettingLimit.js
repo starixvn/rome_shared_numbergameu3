@@ -127,6 +127,7 @@ Fanex.PTEngine.BettingLimit = function (source) {
 	}
 
 	this.Render = function (owner, hideTextBox) {
+	    var isDisplaySportbooks = Fanex.PTEngine.CURRENT_CONTEXT.isDisplaySportbooks;
 		var box = document.createElement("DIV");
 		// Create MinBet, MaxBet, MaxPerMatch header
 		var emptyBox = document.createElement("DIV");
@@ -145,6 +146,12 @@ Fanex.PTEngine.BettingLimit = function (source) {
 		maxPerMatchHeader.innerHTML = Language.MAX_PER_MATCH;
 		maxPerMatchHeader.className = "BettingLimitHeaderTop";
 		box.appendChild(maxPerMatchHeader);
+		if (!isDisplaySportbooks) {
+		    emptyBox.style.display = 'none';
+		    minBetHeader.style.display = 'none';
+		    maxBetHeader.style.display = 'none';
+		    maxPerMatchHeader.style.display = 'none';
+		}
 		var clear = document.createElement("DIV");
 		clear.style.clear = "both";
 		box.appendChild(clear);
@@ -334,6 +341,9 @@ Fanex.PTEngine.BettingLimit = function (source) {
 			}
 			item.element = box2;
 			box.appendChild(box2);
+			if (!isDisplaySportbooks && item.id !== 161) {
+			    box2.style.display = 'none';
+			}
 			var clear = document.createElement("DIV");
 			clear.style.clear = "both";
 			box.appendChild(clear);
