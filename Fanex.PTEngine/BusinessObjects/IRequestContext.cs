@@ -31,5 +31,7 @@
         string Language { get; set; }
 
         string LangKey { get; set; }
+
+        bool IsDisplaySportbooks { get; set; }
     }
 }

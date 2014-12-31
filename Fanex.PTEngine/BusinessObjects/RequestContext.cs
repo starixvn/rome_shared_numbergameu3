@@ -78,6 +78,12 @@
         public string LangKey { get; set; }
 
 
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is display sportbooks.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if this instance is display sportbooks; otherwise, <c>false</c>.
+        /// </value>
         public bool IsDisplaySportbooks { get; set; }
 
         public RequestContext()

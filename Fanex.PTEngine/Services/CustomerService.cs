@@ -80,6 +80,7 @@ namespace Fanex.PTEngine.Services
             int tempSuperId = -1;
             try
             {
+                CopySettingFromDB(context, super, GetCustomerForAddNewSuper);
                 super.Password = Fanex.Common.Cryptography.CfsEnCode(super.Password);
                 Hashtable parameters = super.MapToSpParameters(context);
                 parameters.Add("refcode1", string.Empty);
@@ -113,6 +114,7 @@ namespace Fanex.PTEngine.Services
             Result result = new Result();
             try
             {
+                CopySettingFromDB(context, super, GetCustomerForCompanyEditSuper);
                 Hashtable parameters = super.MapToSpParameters(context);
                 ICustomerDataAccess customerDataAccess = new CustomerDataAccess();
                 result = customerDataAccess.Acc_CompanyUpdateSuper(parameters);
@@ -199,6 +201,7 @@ namespace Fanex.PTEngine.Services
             Result result = new Result();
             try
             {
+                CopySettingFromDB(context, master, GetCustomerForAddNewMaster);
                 master.Password = Fanex.Common.Cryptography.CfsEnCode(master.Password);
                 Hashtable parameters = master.MapToSpParameters(context);
                 ICustomerDataAccess customerDataAccess = new CustomerDataAccess();
@@ -230,6 +233,7 @@ namespace Fanex.PTEngine.Services
             Result result = new Result();
             try
             {
+                CopySettingFromDB(context, master, GetCustomerForSuperEditMaster);
                 Hashtable parameters = master.MapToSpParameters(context);
                 parameters.Add("updateallmembers", isUpdateAllMembers);
                 parameters.Add("newspositiontaking", newPositionTakingValue);
@@ -262,6 +266,7 @@ namespace Fanex.PTEngine.Services
             Result result = new Result();
             try
             {
+                CopySettingFromDB(context, master, GetCustomerForSuperEditMaster);
                 Hashtable parameters = master.MapToSpParameters(context);
                 master.MapToSpUpdateMultipleParameters(ref parameters, updateParameters, true);
                 parameters.Add("updateallmembers", isUpdateAllMembers);
@@ -301,6 +306,7 @@ namespace Fanex.PTEngine.Services
             Result result = new Result();
             try
             {
+                CopySettingFromDB(context, member, GetCustomerForSuperEditMember);
                 Hashtable parameters = member.MapToSpParameters(context);
                 parameters.Add("updateclosed", 1);
                 parameters.Add("updatesuspended", 1);
@@ -333,6 +339,7 @@ namespace Fanex.PTEngine.Services
             Result result = new Result();
             try
             {
+                CopySettingFromDB(context, member, GetCustomerForSuperEditMember);
                 Hashtable parameters = member.MapToSpParameters(context);
                 member.MapToSpUpdateMultipleParameters(ref parameters, updateParameters, false);
                 parameters.Add("updatemultiple", 1);
@@ -368,6 +375,7 @@ namespace Fanex.PTEngine.Services
             Result result = new Result();
             try
             {
+                CopySettingFromDB(context, master, GetCustomerForSuperEditMinPTMaster);
                 Hashtable parameters = master.MapToSpParameters(context);
                 parameters.Add("updateminpos", 1);
                 parameters.Add("updatemaxpos", 0);
@@ -401,6 +409,7 @@ namespace Fanex.PTEngine.Services
             Result result = new Result();
             try
             {
+                CopySettingFromDB(context, member, GetCustomerForMasterEditMember);
                 Hashtable parameters = member.MapToSpParameters(context);
                 parameters.Add("updateclosed", 1);
                 parameters.Add("updatesuspended", 1);
@@ -434,6 +443,7 @@ namespace Fanex.PTEngine.Services
             Result result = new Result();
             try
             {
+                CopySettingFromDB(context, member, GetCustomerForMasterEditMember);
                 Hashtable parameters = member.MapToSpParameters(context);
                 member.MapToSpUpdateMultipleParameters(ref parameters, updateParameters, false);
                 parameters.Add("updatemultiple", 1);
@@ -515,6 +525,7 @@ namespace Fanex.PTEngine.Services
             Result result = new Result();
             try
             {
+                CopySettingFromDB(context, agent, GetCustomerForAddNewAgent);
                 agent.Password = Fanex.Common.Cryptography.CfsEnCode(agent.Password);
                 Hashtable parameters = agent.MapToSpParameters(context);
                 ICustomerDataAccess customerDataAccess = new CustomerDataAccess();
@@ -546,6 +557,7 @@ namespace Fanex.PTEngine.Services
             Result result = new Result();
             try
             {
+                CopySettingFromDB(context, agent, GetCustomerForMasterEditAgent);
                 Hashtable parameters = agent.MapToSpParameters(context);
                 parameters.Add("updateallmembers", isUpdateAllMembers);
                 parameters.Add("newmpositiontaking", newPositionTakingValue);
@@ -578,6 +590,7 @@ namespace Fanex.PTEngine.Services
             Result result = new Result();
             try
             {
+                CopySettingFromDB(context, agent, GetCustomerForMasterEditAgent);
                 Hashtable parameters = agent.MapToSpParameters(context);
                 agent.MapToSpUpdateMultipleParameters(ref parameters, updateParameters, true);
 
@@ -618,6 +631,7 @@ namespace Fanex.PTEngine.Services
             Result result = new Result();
             try
             {
+                CopySettingFromDB(context, agent, GetCustomerForMasterEditMinPTAgent);
                 Hashtable parameters = agent.MapToSpParameters(context);
                 parameters.Add("updateminpos", 1);
                 parameters.Add("updatemaxpos", 0);
@@ -674,6 +688,7 @@ namespace Fanex.PTEngine.Services
             Result result = new Result();
             try
             {
+                CopySettingFromDB(context, member, GetCustomerForAddNewMember);
                 member.Password = Fanex.Common.Cryptography.CfsEnCode(member.Password);
                 Hashtable parameters = member.MapToSpParameters(context);
                 ICustomerDataAccess customerDataAccess = new CustomerDataAccess();
@@ -705,6 +720,7 @@ namespace Fanex.PTEngine.Services
             Result result = new Result();
             try
             {
+                CopySettingFromDB(context, member, GetCustomerForAgentUpdateMember);
                 Hashtable parameters = member.MapToSpParameters(context);
                 ICustomerDataAccess customerDataAccess = new CustomerDataAccess();
                 result = customerDataAccess.Acc_CustomerUpdMember_All(parameters);
@@ -735,6 +751,7 @@ namespace Fanex.PTEngine.Services
             Result result = new Result();
             try
             {
+                CopySettingFromDB(context, member, GetCustomerForAgentUpdateMember);
                 Hashtable parameters = member.MapToSpParameters(context);
                 member.MapToSpUpdateMultipleParameters(ref parameters, updateParameters, true);
                 parameters.Add("updatemultiple", 1);
@@ -860,6 +877,7 @@ namespace Fanex.PTEngine.Services
             Result result = new Result();
             try
             {
+                CopySettingFromDB(context, super, GetCustomerForCompanyEditMinPTSuper);
                 Hashtable parameters = super.MapToSpParameters(context);
                 parameters.Add("updateminpos", 1);
                 parameters.Add("updatemaxpos", 0);
@@ -881,6 +899,66 @@ namespace Fanex.PTEngine.Services
 
             return result;
         }
+        
         #endregion ICustomerService Members   
+
+        private void CopySettingFromDB(IRequestContext requestContext, ICustomer currentCustomer, Func<IRequestContext, ICustomer> getCustomMethod)
+        {
+            try
+            {
+                if (!requestContext.IsDisplaySportbooks)
+                {
+                    var customerFromDb = getCustomMethod(requestContext);
+                    CopyBetLimitSetting(customerFromDb, currentCustomer);
+                }
+            }
+            catch (Exception ex)
+            {
+                LogService.Error(ex.Message);
+            }
+        }
+
+        private void CopySettingFromDB(IRequestContext requestContext, ICustomer currentCustomer, Func<ICustomer> getCustomMethod)
+        {
+            try
+            {
+                if (!requestContext.IsDisplaySportbooks)
+                {
+                    var customerFromDb = getCustomMethod();
+                    CopyPTSetting(customerFromDb, currentCustomer);
+                    CopyBetLimitSetting(customerFromDb, currentCustomer);
+                }
+            }
+            catch (Exception ex)
+            {
+                LogService.Error(ex.Message);
+            }
+        }
+
+        private static void CopyPTSetting(ICustomer fromCustomer, ICustomer toCustomer)
+        {
+            var ptSportLength = fromCustomer.PtSetting.SportTypes.Count;
+            for (int i = 0; i < ptSportLength; i++)
+            {
+                var currentSport = fromCustomer.PtSetting.SportTypes[i];
+                if (currentSport != null && currentSport.Id != Constant.NUMBER_GAME_SPORT_TYPE_ID)
+                {
+                    toCustomer.PtSetting.SportTypes[i] = currentSport;
+                }
+            }
+        }
+
+        private static void CopyBetLimitSetting(ICustomer fromCustomer, ICustomer toCustomer)
+        {
+            var betLimitLength = fromCustomer.BettingLimit.BettingLimitItems.Count;
+            for (int i = 0; i < betLimitLength; i++)
+            {
+                var currentSport = fromCustomer.BettingLimit.BettingLimitItems[i];
+                if (currentSport != null && currentSport.Id != Constant.NUMBER_GAME_SPORT_TYPE_ID)
+                {
+                    toCustomer.BettingLimit.BettingLimitItems[i] = currentSport;
+                }
+            }
+        }
     }
 }
