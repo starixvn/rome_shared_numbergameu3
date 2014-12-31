@@ -44,7 +44,7 @@
             Fanex.PTEngine.CURRENT_CONTEXT = new Fanex.PTEngine.Context(roles[0], roles[1], roles[2]);
             Fanex.PTEngine.CURRENT_CONTEXT.ia3 = true; // Allow auto PT master on member
             Fanex.PTEngine.CURRENT_CONTEXT.language = 'th-TH';
-            Fanex.PTEngine.CURRENT_CONTEXT.isDisplaySportbooks = false;
+            Fanex.PTEngine.CURRENT_CONTEXT.isDisplaySportbooks = false ;
             grid1 = new Fanex.PTEngine.PTGrid(grid);
             var ptContainer = document.getElementById('ptContainer');
             ptContainer.innerHTML = "";
@@ -58,8 +58,10 @@
             Validators.show(document.getElementById('btnSave'), 'This is demo for tooltip message, this is very long message with custom style');
         };
         function Save() {
-            bettingLimit1.Validate();
-            var gridData = grid1.Save();
+            if (bettingLimit1.Validate()) {
+                var betLimitData = bettingLimit1.Save();
+                var gridData = grid1.Save();
+            }
         }
     </script>
     <br />

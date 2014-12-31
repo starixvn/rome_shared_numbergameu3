@@ -25,11 +25,15 @@ Fanex.PTEngine.BettingLimit = function (source) {
 		Validators.animate(elementInput);
 	};
 	this.Validate = function () {
+	    var isDisplaySportbooks = Fanex.PTEngine.CURRENT_CONTEXT.isDisplaySportbooks;
 		var c = this.items.length;
 		for (var i = 0; i < c; i++) {
 			var item = this.items[i];
 			var copiedItem = item.copiedItem;
 			var elementInput = null;
+			if (!isDisplaySportbooks && item.id !== 161) {
+			    continue;
+			}
 			// Validate each sport type
 			if (copiedItem == null) { // Copy checkbox was ticked
 				if (validateExpr.test(item.minBetElement.value) == false) {

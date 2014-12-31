@@ -29,7 +29,7 @@ var bettingLimits2 = {
     "bettingLimitItems": [{
         "id": 1,
         "name": "Soccer",
-        "minBet": 11.0000,
+        "minBet": 10.0000,
         "maxBet": 700.0000,
         "maxPerMatch": 10000.0000,
         "minBetMax": 11.0000,
